@@ -1,0 +1,22 @@
+
+public class Day220414 {
+
+	public static void main(String[] args) {
+		
+		//int 배열 1~100 사이 값을 랜덤하게 입력받아서 총합/평균 구하기
+		
+		int sum = 0;
+		double ave = 0;
+		
+		int[] score = new int[10];
+		
+		//랜덤입력
+		for(int i=0; i<score.length; i++) {
+			score[i] = (int)(Math.random()* 99)+1;
+				sum += score[i];
+				ave = sum/(double)score.length;
+		}
+		System.out.println(sum);
+		System.out.println(ave);
+	}
+}
