@@ -17,7 +17,7 @@ public class Day220421_5 {
 		
 		nArr[0] = rand.nextInt(10);
 		
-		for(int i=1; i<nArr.length; i++) {
+		for(int i=0; i<nArr.length; i++) {
 			int j;
 			do {
 				j=0;
