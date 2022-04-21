@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Day220421 {
+
+	public static void main(String[] args) {
+		// 세 정수를 입력받아서 최대값 출력(배열x)
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+		int num2 = sc.nextInt();
+		int num3 = sc.nextInt();
+		int max = 0;
+		
+		for(int i=0; i<4; i++) {
+			if(num < num2) 
+				max = num2;
+			
+			else if(num2 < num3) 
+				max = num3;
+			
+			else
+				max = num;
+		}
+		System.out.println(max);
+	}
+
+}
