@@ -31,7 +31,7 @@ public class Day220421 {
 		
 		//세 정수를 큰 순서대로 출력
 		
-		if (num2 > num1) {   // && || 사용하면 라인을 좀 더 줄일수있음
+		if (num2 > num1) {   // &&, || 사용하면 라인을 좀 더 줄일수있음
 			if (num2 > num3) {
 				max = num2;
 				if (num1 > num3) {
