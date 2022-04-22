@@ -21,19 +21,24 @@ public class Day {
 		int retry = 0;
 		int last = -1;
 		
+		int success =0;
+		int failed =0;
 		do {
 			int day;
 			do {
-				day = (int)(Math.random()*DayKor.length);
-			}while(day == last);
+				day = (int)(Math.random()*DayKor.length); //랜덤 값 day에 저장
+			}while(day == last); // day와 last가 같은 값이면 다시 do로 올라감
 			last = day;		// 최종요일이 저장된 상태
 			
 			while(true) {
 				System.out.print((DayKor[day])+"요일 : ");
-				String qus = sc.nextLine();
+				String qus = sc.nextLine();  // 정답 입력 > qus에 저장
 				
-				if(qus.equals(DayEng[day])) break;
-			
+				if(qus.equals(DayEng[day])) {
+					success++; // 성공시 +1
+					break; // qus와 비교 후 맞으면 브레이크
+				}
+				failed++; // 실패시 +1
 				System.out.println("오답입니다. 재입력해주세요.");
 			}
 			
@@ -43,6 +48,7 @@ public class Day {
 			
 		}while(retry == 1);
 		
+		System.out.printf("성공 : %d회, 실패 : %d회\n", success, failed);
 		System.out.println("프로그램 종료!!");
 	}
 
