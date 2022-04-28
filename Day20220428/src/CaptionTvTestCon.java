@@ -29,7 +29,9 @@ class Tv3 {
 class CaptionTv3 extends Tv3 {
 	private boolean caption;		// 캡션상태(on/off)
 	
-	public CaptionTv3() {}
+	public CaptionTv3() {
+		this(false, 0, false);
+	}
 	
 	public CaptionTv3(int channel, boolean caption) {
 		super(channel);
