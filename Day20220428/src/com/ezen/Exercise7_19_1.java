@@ -1,3 +1,5 @@
+package com.ezen;
+
 //다음은 물건을 구입하는 사람을 정의한  Buyer 클래스이다. 이 클래스는 멤버변수로 돈(money) 과 
 //장바구니를(cart) 가지고 있다. 제품을 구입하는 기능의 buy메서드와 장바구니에 구입한 물건을 
 //추가하는 add메서드 구입한 물건의 목록과 사용금액 그리고 남은 금액을 출력하는 summary메서드를 
@@ -23,10 +25,10 @@
 public class Exercise7_19_1 {
 
 	public static void main(String[] args) {
-		Buyer b = new Buyer();
-		b.buy(new Tv0());
+		Buyer b = new Buyer(); 		// 객체 생성
+		b.buy(new Tv());			// 구매 목록
 		b.buy(new Computer());
-		b.buy(new Tv0());
+		b.buy(new Tv());
 		b.buy(new Audio());
 		b.buy(new Computer());
 		b.buy(new Computer());
@@ -47,6 +49,15 @@ class Buyer {
 //		1.1 가진 돈과 물건의 가격을 비교해서 가진돈이 적으면 메서드를 종료한다.
 //		1.2 가진 돈이 충분하면, 제품의 가격을 가진 돈에서 빼고
 //		1.3 장바구니에 구입한 물건을 담는다.(add메서드 호출)
+		if(money < p.price) {
+			System.out.println("잔액이 부족하여 "+ p + "를 구매할수 없습니다.");
+			return;
+		}
+		if(money > p.price) {
+			money -= p.price;
+		}
+		add(p);
+	
 	} //buy(Product P) end
 	
 	void add(Product p) {
@@ -56,7 +67,12 @@ class Buyer {
 //		  1.1.2 기존의 장바구니의 내용을 새로운 배열에 복사한다.
 //		  1.1.3 새로운 장바구니와 기존의 장바구니를 바꾼다.
 //		1.2 물건을 장바구니(cart)에 저장한다. 그리고 i의 값을 1 증가시킨다.
-		
+		if(i >= cart.length) {
+			Product[] tmp = new Product[cart.length*2];
+			System.arraycopy(cart, 0, tmp, 0, cart.length);
+			cart = tmp;
+		}
+		cart[i++] = p;
 	} //add(Product P) end
 	
 	void summary() {
@@ -64,6 +80,19 @@ class Buyer {
 //		1.1 장바구니에 담긴 물건들의 목록을 만들어 출력한다.
 //		1.2 장바구니에 담긴 물건들의 가격을 모두 더해서 출력한다.
 //		1.3 물건을 사고 남은 금액(money)를 출력한다.
+		String itemList = "";
+		int sum = 0;
+		
+		for(int i=0; i<cart.length; i++) {
+			if(cart[i]==null)
+				break;
+			itemList += cart[i]+","	;
+			sum += cart[i].price;
+		}
+		System.out.println("구입한 물건 : "+ itemList);
+		System.out.println("사용한 금액 : "+ sum);
+		System.out.println("남은 금액 : "+ money);
+		
 		
 	} //summary end
 }
