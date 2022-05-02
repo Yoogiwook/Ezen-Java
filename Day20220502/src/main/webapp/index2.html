@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>리스트, 테이블, 시간표</title>
+</head>
+<body>
+	<div class="nctg"> <!-- div >>단락을 잡아주는 태크 -->
+		<a id="news_press_menu" href="#" class="btn_nctg">언론사 전체보기</a>
+		<ul id="pross_dropdown" class="cpross_lst hide">
+			<li><a href="#">언론사 전체보기</a></li>
+			<li><a href="#">종합지</a></li>
+			<li><a href="#">방송/통신</a></li>
+			<li><a href="#">경제지</a></li>
+			<li><a href="#">인터넷</a></li>
+			<li><a href="#">IT/영자지</a></li>
+			<li><a href="#">스포츠/연예</a></li>
+			<li><a href="#">매거진/전문지</a></li>
+			<li><a href="#">지역지</a></li>
+		</ul>
+	</div>
+	
+	<!-- 중첩 목록 -->
+	<div>
+		<ul>
+			<li>HTML5</li>
+				<ol>
+					<li>앵커 태크</li>
+					<li>목록 태크</li>
+					<li>테이블 태크</li>
+				</ol>
+			<li>CSS</li>
+				<ol>
+					<li>Animation</li>
+					<li>3D Transform</li>
+			</ol>
+		</ul>
+	</div>
+	
+	<table border="1"><!-- 표생성 (border값을 안주면 구분선 없는 표가 그려짐) -->
+		<caption>테이블</caption><!-- 테이블 이름 -->
+		<tr>		<!-- 행생성 -->
+			<th>이름</th> <!-- 필드 제목 -->
+			<th>나이</th>
+		</tr>
+		<tr>
+			<td>홍길동</td><!-- 목록에 들어갈 내용, 열생성 -->
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>36</td>
+		</tr>
+	
+	</table>
+	
+	<table border="1">
+		<caption>시간표</caption>
+		<tr>
+			<th rowspan="2">교시</th><!-- 아래로(행) 병합 -->
+			<th colspan="5">요일</th><!-- 옆으로(열) 병합 -->
+		</tr>
+		<tr>
+			<th>월</th>
+			<th>화</th>
+			<th>수</th>
+			<th>목</th>
+			<th>금</th>
+		</tr>
+		<tr>
+			<td>1교시</td>
+			<td>JAVA</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>2교시</td>
+			<td></td>
+			<td>JAVA</td>
+			<td></td>
+			<td>CSS</td>
+			<td>CSS</td>
+		</tr>
+		<tr>
+			<td>3교시</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+</body>
+</html>

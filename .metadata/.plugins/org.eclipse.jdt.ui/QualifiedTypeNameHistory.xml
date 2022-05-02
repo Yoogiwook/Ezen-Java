@@ -38,4 +38,10 @@
     <fullyQualifiedTypeName name="Audio1"/>
     <fullyQualifiedTypeName name="Shape"/>
     <fullyQualifiedTypeName name="Rectangle"/>
+    <fullyQualifiedTypeName name="javax.lang.model.util.Elements"/>
+    <fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
+    <fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
+    <fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
+    <fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
+    <fullyQualifiedTypeName name="org.apache.catalina.util.ContextName"/>
 </qualifiedTypeNameHistroy>
