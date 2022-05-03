@@ -29,6 +29,7 @@ public class naverTest {
 				
 				Element articleElement = photoElements.get(j);
 	//			System.out.println(articleElement);
+				
 				Elements aElements = articleElement.select("a");
 				Element aElement = aElements.get(0);
 	//			System.out.println(aElements);
@@ -39,6 +40,7 @@ public class naverTest {
 				Element imgElement = aElement.select("img").get(0);
 				String imgUrl = imgElement.attr("src"); //이미지 링크
 	//			System.out.println(imgUrl);
+				
 				String title = imgElement.attr("alt"); //기사 제목
 //				System.out.println(title);
 				
