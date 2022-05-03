@@ -10,7 +10,6 @@
     <fullyQualifiedTypeName name="CaptionTvTest"/>
     <fullyQualifiedTypeName name="CaptionTv"/>
     <fullyQualifiedTypeName name="Circle"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="com.ezen.Mammal"/>
@@ -44,4 +43,12 @@
     <fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
     <fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
     <fullyQualifiedTypeName name="org.apache.catalina.util.ContextName"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="Fightable"/>
+    <fullyQualifiedTypeName name="Movable"/>
+    <fullyQualifiedTypeName name="Attackable"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="com.tv.Tv"/>
+    <fullyQualifiedTypeName name="SamsungLG.SamsungTv"/>
+    <fullyQualifiedTypeName name="LGSamsung.SamsungTv"/>
 </qualifiedTypeNameHistroy>
