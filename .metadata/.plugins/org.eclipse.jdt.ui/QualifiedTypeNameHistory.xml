@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
     <fullyQualifiedTypeName name="BlockTest"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="com.ezen.Sedan"/>
@@ -10,7 +8,6 @@
     <fullyQualifiedTypeName name="CaptionTvTest"/>
     <fullyQualifiedTypeName name="CaptionTv"/>
     <fullyQualifiedTypeName name="Circle"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="com.ezen.Mammal"/>
     <fullyQualifiedTypeName name="com.ezen.Person"/>
@@ -47,8 +44,20 @@
     <fullyQualifiedTypeName name="Fightable"/>
     <fullyQualifiedTypeName name="Movable"/>
     <fullyQualifiedTypeName name="Attackable"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="com.tv.Tv"/>
     <fullyQualifiedTypeName name="SamsungLG.SamsungTv"/>
     <fullyQualifiedTypeName name="LGSamsung.SamsungTv"/>
+    <fullyQualifiedTypeName name="com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.ezen.ex01.ReadAgeException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.ezen.ex01.Value"/>
+    <fullyQualifiedTypeName name="com.ezen.ex01.HashSetEqualTest"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="java.lang.CloneNotSupportedException"/>
+    <fullyQualifiedTypeName name="com.ezen.ex01.Point"/>
+    <fullyQualifiedTypeName name="com.ezen.ex01.Rectangle"/>
+    <fullyQualifiedTypeName name="java.lang.Cloneable"/>
 </qualifiedTypeNameHistroy>
