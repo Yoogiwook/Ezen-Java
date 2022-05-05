@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="BlockTest"/>
-    <fullyQualifiedTypeName name="lombok.ToString"/>
-    <fullyQualifiedTypeName name="com.ezen.Sedan"/>
-    <fullyQualifiedTypeName name="javax.net.ssl.HostnameVerifier"/>
-    <fullyQualifiedTypeName name="com.ezen.Sports"/>
-    <fullyQualifiedTypeName name="CaptionTvTest"/>
     <fullyQualifiedTypeName name="CaptionTv"/>
-    <fullyQualifiedTypeName name="Circle"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="com.ezen.Mammal"/>
     <fullyQualifiedTypeName name="com.ezen.Person"/>
@@ -29,11 +22,8 @@
     <fullyQualifiedTypeName name="Tv"/>
     <fullyQualifiedTypeName name="Computer"/>
     <fullyQualifiedTypeName name="Audio"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="Product"/>
     <fullyQualifiedTypeName name="Audio1"/>
-    <fullyQualifiedTypeName name="Shape"/>
-    <fullyQualifiedTypeName name="Rectangle"/>
     <fullyQualifiedTypeName name="javax.lang.model.util.Elements"/>
     <fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
     <fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
@@ -60,4 +50,14 @@
     <fullyQualifiedTypeName name="com.ezen.ex01.Point"/>
     <fullyQualifiedTypeName name="com.ezen.ex01.Rectangle"/>
     <fullyQualifiedTypeName name="java.lang.Cloneable"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="Test01"/>
+    <fullyQualifiedTypeName name="Test02_1"/>
+    <fullyQualifiedTypeName name="MyTv2"/>
+    <fullyQualifiedTypeName name="MyTv3"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="Circle"/>
+    <fullyQualifiedTypeName name="Shape"/>
+    <fullyQualifiedTypeName name="Rectangle"/>
 </qualifiedTypeNameHistroy>
