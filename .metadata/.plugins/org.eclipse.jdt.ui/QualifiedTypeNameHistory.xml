@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Robot"/>
-    <fullyQualifiedTypeName name="Exercise7_18.DanceRobot"/>
     <fullyQualifiedTypeName name="Exercise7_18.SingRobot"/>
     <fullyQualifiedTypeName name="Exercise7_18.DrawRobot"/>
     <fullyQualifiedTypeName name="javax.annotation.processing.SupportedAnnotationTypes"/>
@@ -48,16 +46,18 @@
     <fullyQualifiedTypeName name="MyTv2"/>
     <fullyQualifiedTypeName name="MyTv3"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
-    <fullyQualifiedTypeName name="Circle"/>
-    <fullyQualifiedTypeName name="Shape"/>
     <fullyQualifiedTypeName name="Rectangle"/>
     <fullyQualifiedTypeName name="com.ezen01.Card"/>
     <fullyQualifiedTypeName name="sun.jvm.hotspot.debugger.win32.coff.COFFException"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.ezen01.StringTokenizerEx1"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA.SHA256"/>
+    <fullyQualifiedTypeName name="Shape"/>
+    <fullyQualifiedTypeName name="Triangle"/>
+    <fullyQualifiedTypeName name="Circle"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>

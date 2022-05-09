@@ -11,7 +11,7 @@ public class naverTest {
 
 	public static void main(String[] args) throws IOException {
 		
-		int pages = 5;
+		int pages = 3;
 		for(int i=1; i<pages; i++) {
 		
 			String url = "https://news.naver.com/main/list.naver?mode=LS2D&sid2=249&sid1=102&mid=shm&date=20220502&page="+i;
