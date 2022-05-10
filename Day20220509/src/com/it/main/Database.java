@@ -155,7 +155,7 @@ public class Database {
 			
 			ResultSet rs = psmt.executeQuery();
 			
-			rs.next();
+			rs.next(); //데이터 조회 후 커서를 맨 앞으로 보내준다 이 문장이 있어야만 데이터 조회 가능
 			
 			System.out.println(rs.getInt(1)
 					+ ", " + rs.getString(2)

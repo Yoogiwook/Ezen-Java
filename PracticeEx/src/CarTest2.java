@@ -17,6 +17,7 @@ class Car{
 		this.door = door;			// 들어온 door 값을 받아서 저장
 	}
 }
+
 public class CarTest2 {
 
 	public static void main(String[] args) {
