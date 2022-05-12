@@ -1,4 +1,4 @@
-package com.it.main;
+package com.naver.news;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
