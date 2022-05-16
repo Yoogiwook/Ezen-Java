@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.ezen.ex01.Value"/>
-    <fullyQualifiedTypeName name="com.ezen.ex01.HashSetEqualTest"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.lang.CloneNotSupportedException"/>
-    <fullyQualifiedTypeName name="com.ezen.ex01.Point"/>
-    <fullyQualifiedTypeName name="com.ezen.ex01.Rectangle"/>
-    <fullyQualifiedTypeName name="java.lang.Cloneable"/>
-    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-    <fullyQualifiedTypeName name="Test01"/>
-    <fullyQualifiedTypeName name="Test02_1"/>
     <fullyQualifiedTypeName name="MyTv2"/>
     <fullyQualifiedTypeName name="MyTv3"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
@@ -19,7 +9,6 @@
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.ezen01.StringTokenizerEx1"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA.SHA256"/>
@@ -27,8 +16,6 @@
     <fullyQualifiedTypeName name="Triangle"/>
     <fullyQualifiedTypeName name="Circle"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.it.main.Database"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
@@ -44,20 +31,33 @@
     <fullyQualifiedTypeName name="java.util.Deque"/>
     <fullyQualifiedTypeName name="java.util.ArrayDeque"/>
     <fullyQualifiedTypeName name="java.awt.List"/>
-    <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.ListIterator"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.code.Attribute.Array"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
     <fullyQualifiedTypeName name="Person"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.lang.Comparable"/>
     <fullyQualifiedTypeName name="Mysort"/>
     <fullyQualifiedTypeName name="MySort"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="com.sun.swing.internal.plaf.metal.resources.metal"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="java.util.TreeSet"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.debugger.cdbg.basic.BasicBitType"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.naver.news.Database1"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.Element"/>
+    <fullyQualifiedTypeName name="javax.swing.text.Document"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 </qualifiedTypeNameHistroy>
