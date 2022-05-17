@@ -48,6 +48,10 @@ class Student2{
 		this.eng = eng;
 		this.math = math;
 	}
+	public char[] getName() {
+		
+		return null;
+	}
 	//함수 오버로딩
 	public Student2(String name, int ban, int no) {
 		this.name = name;
