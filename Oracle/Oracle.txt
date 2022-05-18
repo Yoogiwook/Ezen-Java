@@ -9,28 +9,46 @@ select distinct REGION_ID from countries;
 // as abc >> 별칭 지정
 select country_id as 국가ID, country_name as 국가명 from countries;
 // order by sal asc or desc		 >> 오름차순(생략가능), 내림차순 가급적 안쓰는게 좋음
-// order by sal asc, deptno desc		, 로 여러개 정렬 가능 
+// order by sal asc, deptno desc		, 로 여러개 정렬 가능
 // || 컬럼이나 문자열을 연결
 select department_id || department_name as name from departments;
 // where 조건문
 select * from employees where employee_id = 110;
-
+------------------------------------------------------------------------------------
 연산자
-- 산술 연산자( + - / *)
+- 산술 연산자( + - / * )
+
 - 비교 연산자( = <>(같지 않다) !=(같지않다) >= <=)
+
 - 논리 연산자( and, or, not)
+
 - 집합 연산자( union, union all, minus, intersect )
-- SQL 연산자( between, in, like, is null )
-between >> 두 값의 범위에 해당하는 데이터만 출력할 때 사용되는 확장 연산자
+union >> 두 조건에 합하는 데이터를 출력 (~와 ~) 합집합
+	select employee_id, first_name, department_id from EMPLOYEES where department_id = 60
+	union 
+	select employee_id, first_name, department_id from EMPLOYEES where department_id = 100;
+
+minus >> 두 조건에 합하는 데이터를 제외하고 출력 (~에서 ~까지를 제외하고) 차집합
+	select employee_id, first_name, department_id from EMPLOYEES where department_id <=100
+	minus
+	select employee_id, first_name, department_id from EMPLOYEES where department_id >=50;
+
+intersect >> 두 조건에 합하는 데이터를 출력 (~에서 ~까지) 교집합
+	select employee_id, first_name, department_id from EMPLOYEES where department_id <=100
+	intersect
+	select employee_id, first_name, department_id from EMPLOYEES where department_id >=50;
+
+- SQL 연산자( between, in, like, is null ) not이 붙으면 반대의미
+between A and B>> 두 값의 범위에 해당하는 데이터만 출력할 때 사용되는 확장 연산자
 	select * from EMPLOYEES where EMPLOYEE_ID BETWEEN 120 and 130;
 
-in 연산자 >> ( ) 안에 입력된 문자에 해당하는 데이터만 출력
+(not) in 연산자 >> ( ) 안에 입력된 문자에 해당하는 데이터만 출력
 	select * from EMPLOYEES where FIRST_NAME in('Steven', 'John', 'Peter', 'Payam');
 
-is null >> 데이터가 null 값인 데이터만 출력
+is (not) null >> 데이터가 null 값인 데이터만 출력
 	select * from EMPLOYEES where COMMISSION_PCT is null;
 
-like 연산자 >> 문자열 속성에서 부분적으로 일치하는 데이터만 출력 할 때 사용
+(not) like 연산자 >> 문자열 속성에서 부분적으로 일치하는 데이터만 출력 할 때 사용
 -- % > 0개 이상의 문자(문자의 내용과 갯수는 상관 없음)
 -- _ > 1개의 문자
 -- Like 'data%' >> data로 시작하는 문자열
@@ -42,7 +60,38 @@ like 연산자 >> 문자열 속성에서 부분적으로 일치하는 데이터�
 	select * from LOCATIONS where city like 'South____';
 -- Like '____data'( _ 4개) >> data로 끝나는 8개 문자열
 
-
 숫자 뿐만 아니라 문자나 날짜 값을 비교하는 것도 가능
 예) 'A' < 'C'
     '2020-10-10' < '2022-05-17'
+
+
+문자 함수
+lower >> 전부 소문자로
+
+upper >> 전부 대문자로
+
+initcap >> 첫글자만 대문자로
+
+SUBSTR 함수
+select job_id, substr(job_id,1,2) as str1, substr(job_id, 4) as str2
+from EMPLOYEES;
+substr(job_id,1,2) : 1,2번째 글자만 출력
+substr(job_id,3,4) : 3,4번째 글자만 출력
+substr(job_id, 4) : 4번째 글자부터 출력
+
+REPLACE 함수
+select job_id, replace(job_id, 'MGR', 'MANAGER') from EMPLOYEES;
+(job_id, 'MGR', 'MANAGER') : 'MGR'을 'MANAGER'로 바꾸는 함수
+
+CONCAT 함수
+select first_name, last_name, concat(first_name, concat(' ', last_name)) from EMPLOYEES;
+'Ellen Abel' 두 개 문자열 결합하는 함수
+
+LENGTH 함수
+select first_name, length(first_name) from EMPLOYEES;
+문자열의 길이값 알려주는 함수
+
+INSTR 함수
+select first_name, instr(first_name , 'a') from EMPLOYEES;
+'a'가 몇번째 위치에 있는지 알려주는 함수
+
