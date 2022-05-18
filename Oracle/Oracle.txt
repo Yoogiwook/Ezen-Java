@@ -19,6 +19,9 @@ select * from employees where employee_id = 110;
 - 산술 연산자( + - / * )
 
 - 비교 연산자( = <>(같지 않다) !=(같지않다) >= <=)
+숫자 뿐만 아니라 문자나 날짜 값을 비교하는 것도 가능
+예) 'A' < 'C'
+    '2020-10-10' < '2022-05-17'
 
 - 논리 연산자( and, or, not)
 
@@ -60,10 +63,6 @@ is (not) null >> 데이터가 null 값인 데이터만 출력
 	select * from LOCATIONS where city like 'South____';
 -- Like '____data'( _ 4개) >> data로 끝나는 8개 문자열
 
-숫자 뿐만 아니라 문자나 날짜 값을 비교하는 것도 가능
-예) 'A' < 'C'
-    '2020-10-10' < '2022-05-17'
-
 
 문자 함수
 lower >> 전부 소문자로
@@ -94,4 +93,40 @@ select first_name, length(first_name) from EMPLOYEES;
 INSTR 함수
 select first_name, instr(first_name , 'a') from EMPLOYEES;
 'a'가 몇번째 위치에 있는지 알려주는 함수
+
+LPAD, RPAD 함수
+select LPAD(first_name, 10,'*'), RPAD(first_name, 10,'*') from EMPLOYEES;
+LPAD : 왼쪽 빈칸을 '*'로 채우기
+RPAD : 오른쪽 빈칸을 '*'로 채우기
+
+LTRIM, RTRIM 함수
+select job_id, ltrim(job_id, 'A'), rtrim(job_id, 'T') from EMPLOYEES;
+LTRIM : 왼쪽에서 특정 문자 제거
+RTRIM : 오른쪽에서 특정 문자 제거
+
+숫자 함수
+ceil(12.345) 정수올림
+floor(12.345) 정수 내림
+round(12.345,0) 반올림 ( 12.345, 0 < 소숫점 몇번째 자리에서 반올림)
+trunc(12.345,1) 절삭( 12.345, 1 < 소수점 몇번째 자리까지 출력)
+mod(12,5) 나누고 나머지 출력
+power(3, 3) 거듭제곱
+sqrt(9) 제곱근
+sign(양수인경우 1, 0인경우 0, 음수인경우 -1)
+
+날짜 함수
+sysdate : 오늘날짜 + 숫자 하면 내일~
+MONTH_BETWEEN(sysdate, 날짜) : 몇 개월이 지났나
+	select sysdate, MONTHS_BETWEEN(sysdate, hire_date) from EMPLOYEES where EMPLOYEE_ID = 100;
+add_months(hire_date, 2) : (날로부터, 몇 개월) -하면 이전날짜도 가능
+	select hire_date, add_months(hire_date, 2), add_months(hire_date, -2) from EMPLOYEES;
+to_char : 숫자나 날짜를 문자 데이터로 변환
+	to_char(salary, '099999') : 6자리 숫자로 표현 빈공간은 '0'으로 출력
+	to_char(salary, '9,999,999') : 백자리마다 , 붙여줌
+to_number :  문자를 숫자로 변경
+to_date : 문자 데이터를 날짜 데이터로 변경
+(CC : 세기, AD : 서기, Q : 분기)
+select to_char(sysdate, 'yyyy/mm/dd') from dual; : 날짜 형식 표기
+(MON : * 월, DAY : * 요일, ddd : 올해 몇일째인가, d : 이번주 몇일째인가
+
 
