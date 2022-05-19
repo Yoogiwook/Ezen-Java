@@ -2,7 +2,12 @@
 system 계정 접속 후 > alter user 계정명 account unlock identified by 비밀번호;
 비밀번호 변경
 system 계정 접속 후 > alter user 계정명 identified by 비밀번호;
-
+scott 계정 활성화 
+C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin 들어가서 scott.sql 있나 확인
+cmd 창에서 splplus system/1234 로그인 후 
+@C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql 입력
+alter user scott account unlock identified by tiger; (비밀번호는 tiger 아니여도 상관없음.
+grant connect, resource to scott; 권한주기
 
 // distinct >> 중복된 데이터 하나씩만 출력(데이터 삭제는 아님)
 select distinct REGION_ID from countries;
@@ -18,12 +23,12 @@ select * from employees where employee_id = 110;
 연산자
 - 산술 연산자( + - / * )
 
-- 비교 연산자( = <>(같지 않다) !=(같지않다) >= <=)
+- 비교 연산자( = <>(같지 않다) !=(같지않다) >= <= )
 숫자 뿐만 아니라 문자나 날짜 값을 비교하는 것도 가능
 예) 'A' < 'C'
     '2020-10-10' < '2022-05-17'
 
-- 논리 연산자( and, or, not)
+- 논리 연산자( and, or, not )
 
 - 집합 연산자( union, union all, minus, intersect )
 union >> 두 조건에 합하는 데이터를 출력 (~와 ~) 합집합
@@ -127,6 +132,77 @@ to_number :  문자를 숫자로 변경
 to_date : 문자 데이터를 날짜 데이터로 변경
 (CC : 세기, AD : 서기, Q : 분기)
 select to_char(sysdate, 'yyyy/mm/dd') from dual; : 날짜 형식 표기
-(MON : * 월, DAY : * 요일, ddd : 올해 몇일째인가, d : 이번주 몇일째인가
+d : 이번주 몇일째인가
+CC : 세기, YYYY,RRRR : 년 4자리 숫자, YY,RR : 년 2자리 숫자, MM : 월 2자리숫자, MON : * 월
+DD : 일 2자리 숫자, DDD : 1년중 며칠, DY : 요일(월,화,수...) DAY : * 요일(월요일) W : 1년 중 몇 번째 주
+집계 함수
+count, sum, avg, max, min, group by having(조건)
+count : 데이터(행) 갯수 구하는 함수
+	select count(first_name), count(*) from EMPLOYEES;
+sum : 전체 더하기
+avg : 전체 평균
+	select sum(salary), avg(salary) from EMPLOYEES;
+max : 최대값
+min : 최소값
+	select max(salary), min(salary) from EMPLOYEES;
+STTDEV : 표준편차
+VARIANCE : 분산
+	select stddev(salary), variance(salary) from EMPLOYEES;
+group by 동작 순서
+1. 테이블에서 where조건식에 맞는 데이터 값만 구분
+2. 지정한 열 기준으로 같은데이터 값으로 그룹화
+3. 지정한 열들의 그룹화된 집계 결과 출력
+	select job_id, sum(salary), avg(salary) from EMPLOYEES group by job_id;
+job_id로 그룹화 한 뒤 salary의 총합, 평균 구한것
+	select job_id, sum(salary), avg(salary) from EMPLOYEES where department_id = 50 group by job_id;
+	select department_id, max(salary), min(salary) from EMPLOYEES group by department_id;
+위 같은 식은 group by 안하면 에러남
+	select job_id, department_id, sum(salary), avg(salary) from EMPLOYEES group by job_id, department_id;
+그룹을 두개로 묶어줘야함
 
+having(조건)
+	select job_id, sum(salary), avg(salary) from EMPLOYEES group by job_id having avg(salary) > 10000;
+일반 조건은 where 이지만 sum(salary), avg(salary)같은 그룹조건은 having 사용해야함
+
+nvl(manager_id, 100) : null 값을 특정 값(100)으로 채워줌(문자도 가능)
+null 값을 특정 값으로 치환
+	select department_name, nvl(manager_id, 100) from departments;
+nvl2(manager_id, '관리자', '무') : 값이 있으면 첫번째 '', 값이 null 이면 두번째 '' 들어감
+null 값이 있는 경우와 없는 경우를 구분하여 특정값으로 치환
+	select department_name, nvl2(manager_id, '관리자', '무') from departments;
+
+decode(min_salary, 2500, min_salary*1.1, min_salary) : min_salary 값이 2500이면 10% 증가
+데이터가 조건값과 일치하면 치환값을 출력하고 일치하지 않으면 기본값을 출력
+	select min_salary, decode(min_salary, 2500, min_salary*1.1, min_salary) from jobs;
+
+case
+	when 		then
+	else
+end
+ : when 조건에 일치하면 then 실행 나머지는 else
+select min_salary, 
+    case 
+        when min_salary <4000 then min_salary*1.2
+        when min_salary between 4000 and 6000 then min_salary*1.1
+        else min_salary
+    end as 최소급여변경
+from jobs;
+
+rank() over() : 순위 구하기(공동순위 있으면 그만큼 넘기고 다음순위 나옴 1-2-2-4-5-6....)
+select first_name, salary,
+    rank() over(order by salary desc) as rank
+from EMPLOYEES;
+
+dense_rank() over() : 순위구하기(공동순위 있어도 다음순위 그대로 1-2-2-3-4-5...)
+select first_name, salary,
+    rank() over(order by salary desc) as rank,
+    dense_rank() over(order by salary desc) as dense_rank
+from EMPLOYEES;
+
+row_number() over() : 순위구하기(공동순위 없음 순서대로 1-2-3-4-5-6...)
+select first_name, salary,
+    rank() over(order by salary desc) as rank,
+    dense_rank() over(order by salary desc) as dense_rank,
+    row_number() over(order by salary desc) as row_rank
+from EMPLOYEES;
 
