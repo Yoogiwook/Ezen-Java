@@ -206,3 +206,15 @@ select first_name, salary,
     row_number() over(order by salary desc) as row_rank
 from EMPLOYEES;
 
+카티션 곱 : 모든 행에 대해서 조인 ( 잘 사용하지 않음 )
+	select * from EMPLOYEES, DEPARTMENTS;
+동등조인 : 조인하는 테이블에서 조인 조건이 일치하는 것만 조회 >> 내부 조인
+	select * from jobs, job_history where jobs.JOB_ID = job_history.JOB_ID;
+외부조인 : 조인하는 테이블에서 조인 조건을 만족하지 않는 행도 출력 동등조인 조건을 만족하지
+못하고 누락된 행을 출력할 때 사용 ( (+) 위치에 따라서 왼쪽 조인 오른쪽 조인 사용가능
+	select * from jobs j, job_history h where j.job_id = h.job_id(+); ( 왼쪽 조인 )
+	select * from jobs j, job_history h where j.job_id(+) = h.job_id; ( 오른쪽 조인 )
+
+
+
+

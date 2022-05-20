@@ -26,7 +26,7 @@ public class Exercise11_14 {
 	}
 	static int displayMenu() {
 System.out.println("******************************************");
-	System.out.println("*           성적 관리 프로그램            *");
+	System.out.println("*             성적 관리 프로그램              *");
 System.out.println("******************************************");
 	System.out.println();
 	System.out.println("1. 학생성적 입력하기 ");
