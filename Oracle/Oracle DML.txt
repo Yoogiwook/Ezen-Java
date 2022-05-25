@@ -1,0 +1,15 @@
+DML (Data Manipulation Language)
+select
+insert
+update
+delete
+CRUD (Create Read Update Delete)
+
+select : 데이터 검색
+insert : 테이블에 데이터 입력
+	insert into countries values('KR', 'North Korea', 3);
+	insert into countries(country_id, country_name, region_id) values('KP', 'South Korea', 3);
+update : 입력된 데이터 수정
+	update jobs set MIN_SALARY=10000, MAX_SALARY=20000 where job_id = 'IT_PROG';
+delete : 데이터 삭제
+	delete from countries where country_id = 'KM';

@@ -1,0 +1,15 @@
+Oracle 계정 활성화
+system/1234 계정 접속 후 > alter user 계정명 account unlock identified by 비밀번호;
+
+비밀번호 변경
+system/1234 계정 접속 후 > alter user 계정명 identified by 비밀번호;
+
+--> sqldeveloper 에서 system해보고 안되면 cmd창으로
+윈도우키+R -> cmd입력 -> sqlplus system/1234 로그인 Connected to: 메시지 확인 후 명령어 입력
+
+scott 계정 활성화 
+1. C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin 들어가서 scott.sql 있나 확인
+2. cmd 창에서 sqlplus system/1234 로그인 후 
+3. @C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql 입력
+4. alter user scott account unlock identified by tiger; (비밀번호는 tiger 아니여도 상관없음.)
+5. grant connect, resource to scott; 권한주기

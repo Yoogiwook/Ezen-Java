@@ -22,8 +22,12 @@ public class ParamServlet extends HttpServlet {
 		// null값이 들어오면 integer 타입은 null값을 정수로 바꿀수없어서 에러남
 		
 		PrintWriter out = response.getWriter();
+		out.print("<html><body>");
+		out.println("당신이 입력한 정보입니다.<br>");
 		out.println("id = " + id);
-		out.println("age = " + age);
+		out.println("<br> age = " + age);
+		out.println("<br><a href='javascript:history.go(-1)'>다시</a>");
+		out.print("</body></html>");
 	}
 
 }

@@ -1,12 +1,14 @@
 계정 활성화
 system 계정 접속 후 > alter user 계정명 account unlock identified by 비밀번호;
+
 비밀번호 변경
 system 계정 접속 후 > alter user 계정명 identified by 비밀번호;
+
 scott 계정 활성화 
 C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin 들어가서 scott.sql 있나 확인
-cmd 창에서 splplus system/1234 로그인 후 
+cmd 창에서 sqlplus system/1234 로그인 후 
 @C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql 입력
-alter user scott account unlock identified by tiger; (비밀번호는 tiger 아니여도 상관없음.
+alter user scott account unlock identified by tiger; (비밀번호는 tiger 아니여도 상관없음.)
 grant connect, resource to scott; 권한주기
 
 // distinct >> 중복된 데이터 하나씩만 출력(데이터 삭제는 아님)
@@ -219,8 +221,19 @@ from EMPLOYEES;
 	select * from EMPLOYEES where PHONE_NUMBER = (
     select PHONE_NUMBER from EMPLOYEES where EMPLOYEE_ID = 100
 	);
-
 	select * from EMPLOYEES where salary > (
     select salary from EMPLOYEES where hire_date = '06/01/03'
 	);
 
+서브쿼리(다중 서브 쿼리) 
+IN : 메인쿼리의 데이터가 서브 쿼리의 결과중 하나라도 일치한 데이터가 있으면 true
+	select salary from EMPLOYEES where salary in (select max(salary) from EMPLOYEES 
+	group by department_id) order by salary;
+ANY, SOME : 메인쿼리의 조건식을 만족하는 서브쿼리의 결과가 하나 이상이면 true
+(IN 과의 차이 -  ANY,SOME 은 비교연산자(< > =)를 사용 함)
+	select * from EMP where sal = any(select max(sal) from emp group by deptno);
+	select * from emp where sal = some(select max(sal)from emp group by deptno);
+ALL : 메인쿼리의 조건식을 서브쿼리의 결과 모두가 만족하면 true
+	select sal from emp where sal < all( select sal from emp where deptno = 30);
+EXISTS : 서브쿼리의 결과가 존재하면(즉, 행이 1개 이상일 경우) true
+	select * from EMPLOYEES where EXISTS(select * from EMPLOYEES where employee_id = 100);

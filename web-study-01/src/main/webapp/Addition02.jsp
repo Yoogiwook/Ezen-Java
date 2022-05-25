@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% // 스크립트릿
+	<% // 스크립트릿 자바환경이라고 보면 됨
 		int num1 = 20;
 		int num2 = 10;
 		int add = num1 + num2;
