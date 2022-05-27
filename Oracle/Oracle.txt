@@ -137,10 +137,13 @@ select to_char(sysdate, 'yyyy/mm/dd') from dual; : 날짜 형식 표기
 d : 이번주 몇일째인가
 CC : 세기, YYYY,RRRR : 년 4자리 숫자, YY,RR : 년 2자리 숫자, MM : 월 2자리숫자, MON : * 월
 DD : 일 2자리 숫자, DDD : 1년중 며칠, DY : 요일(월,화,수...) DAY : * 요일(월요일) W : 1년 중 몇 번째 주
+
 집계 함수
 count, sum, avg, max, min, group by having(조건)
 count : 데이터(행) 갯수 구하는 함수
 	select count(first_name), count(*) from EMPLOYEES;
+
+다중 행 함수
 sum : 전체 더하기
 avg : 전체 평균
 	select sum(salary), avg(salary) from EMPLOYEES;
@@ -150,6 +153,7 @@ min : 최소값
 STTDEV : 표준편차
 VARIANCE : 분산
 	select stddev(salary), variance(salary) from EMPLOYEES;
+
 group by 동작 순서
 1. 테이블에서 where조건식에 맞는 데이터 값만 구분
 2. 지정한 열 기준으로 같은데이터 값으로 그룹화
