@@ -1,0 +1,66 @@
+DML (Data Manipulation Language) 데이터 조작어
+select
+insert
+update
+delete
+CRUD (Create Read Update Delete)
+
+select : 데이터 검색
+insert : 테이블에 데이터 입력
+	insert into countries values('KR', 'North Korea', 3);
+	insert into countries(country_id, country_name, region_id) values('KP', 'South Korea', 3);
+update : 입력된 데이터 수정
+	update jobs set MIN_SALARY=10000, MAX_SALARY=20000 where job_id = 'IT_PROG';
+delete : 데이터 삭제
+	delete from countries where country_id = 'KM';
+
+
+DDL (Data Definition Language) 데이터 정의어
+create
+alter
+rename
+truncate
+drop
+
+create : 테이블, 데이터베이스 등 생성
+	create table emp_ddl(
+    empno number(4),
+    ename varchar2(10),
+    job varchar2(9),
+    mgr number(4),
+    hiredate date,
+    sal number(7,2), - (7, 2) : 소숫점 이하 두자리 숫자를 포함한 7자리 숫자를 저장
+    comm number(7,2),
+    detpno number(2)
+    );
+기존 테이블 열 구조와 데이터 복사를 동시에 하려면 as 키워드를 사용해서 생성
+	create table dept_ddl as select * from dept;
+기존 테이블 열 구조와 일부 데이터만 복사하여 새 테이블 생성
+	create table emp_ddl_30 as select * from emp where deptno=30;
+기존 테이블 열 구조만 복사하여 새 테이블 생성
+	create table empdept_ddl as
+select e.empno, e.ename, e.job, e.mgr, e.hiredate, e.sal, e.comm, d.deptno, d.dname, d.loc
+from emp e, dept d where 1 <> 1;
+
+alter : 테이블, 데이터 베이스 변경
+테이블에 열 추가 ADD
+	alter table emp_alter add hp varchar2(20);
+테이블 열 이름 변경 RENAME
+	alter table emp_alter rename column hp to tel;
+테이블 열 자료형 변경 MODIFY
+	alter table emp_alter modify empno number(5);
+테이블 특정 열을 삭제 DROP
+	alter table emp_alter drop column tel;
+
+rename : 테이블 이름 변경
+	rename emp_alter to emp_rename;
+
+truncate : 테이블 데이터 삭제(delete와의 차이점 rollback 불가능)
+	truncate table emp_rename;
+
+drop : 테이블, 데이터베이스 삭제
+	drop table emp_rename;
+
+
+
+cascade : 두 테이블을 연결해서 PK값을 가지고 있는 쪽의 값을 삭제하면 FK값도 같이 삭제됨
