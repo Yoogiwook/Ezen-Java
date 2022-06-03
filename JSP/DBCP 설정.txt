@@ -1,4 +1,5 @@
 DBCP 설정
+프로젝트의 build path에 jstl.jar, ojdbc6.jar, standard.jar 추가해주기
 tomcat.apache.org > Documentation-Tomcat 9.0 > User Guide-10)JDBC DataSource > Oracle 8i, 9i & 10g
 > 1. Context configuration - 
 		<Resource name="jdbc/myoracle" auth="Container"
