@@ -42,6 +42,7 @@ public class DataDAO {
 		   conn=DriverManager.getConnection(URL,"root","1234"); // 경로, id, pw
 	   }catch(Exception ex) {}
    }
+   // 연결 해제
    public void disConnection()
    {
 	   try

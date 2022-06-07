@@ -43,14 +43,14 @@ public class SeoulMain {
 				       
 					   SeoulLocationVO vo=new SeoulLocationVO();
 					   vo.setNo(k); 
-					   vo.setTitle(title.get(j).text()); 
-					   vo.setMsg(comment.get(j).text()); 
+					   vo.setTitle(title.get(j).text()); // vo에 title 텍스트만 추출 후 저장
+					   vo.setMsg(comment.get(j).text()); // vo에 comment 텍스트만 추출 후 저장
 					   String image=poster.get(j).attr("style"); // poster style의 속성값을 image에 저장
 					   image=image.substring(image.indexOf("(")+1,image.lastIndexOf(")")); //'('다음부터 ')'까지 내용을 반환
 					   // style="background-image:url(/comm/getImage?srvcId=POST&amp;parentSn=5548&amp;fileTy=POSTTHUMB&amp;fileNo=1&amp;thumbTy=M)"
 					   image="https://korean.visitseoul.net"+image;
-					   vo.setPoster(image);
-					   vo.setAddress(address.text());
+					   vo.setPoster(image); // vo에 image값을 저장
+					   vo.setAddress(address.text()); // vo에 address의 텍스트만 추출 후 저장
 					   dao.seoulLocationInsert(vo); // vo에 저장된 값을 연동 된 데이터베이스에 입력
 					   k++;
 				   }catch(Exception ex) {}
@@ -68,8 +68,8 @@ public class SeoulMain {
 			for(int i=1;i<=33;i++)
 			{
 			   Document doc=Jsoup.connect("https://korean.visitseoul.net/hotels?curPage="+i).get(); // 서울 호텔목록 페이지
-			   Elements poster=doc.select("ul.article-list li.item div.thumb img"); //item class의 div 안에 thumb 이미지를 저장
-			   Elements link=doc.select("ul.article-list li.item a"); //poster가 있는 링크
+			   Elements poster=doc.select("ul.article-list li.item div.thumb img"); // 썸네일 이미지
+			   Elements link=doc.select("ul.article-list li.item a"); // 썸네일장소 세부설명 링크
 			   Elements title=doc.select("ul.article-list li.item div.infor-element span.title"); // 호텔이름
 			   Elements score=doc.select("div.infor-element-inner span.trip-ico img"); //평점
 			   for(int j=0;j<poster.size();j++)
