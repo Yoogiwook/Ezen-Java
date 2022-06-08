@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.it.dao.*" %>
+	pageEncoding="UTF-8" import="com.it.dao.*"
+%>
 
-<jsp:useBean id="dao" class="com.it.dao.BoardDAO"/>
+<jsp:useBean id="dao" class="com.it.dao.BoardDAO" />
 
 <%
 	String no = request.getParameter("no");
 	String pwd = request.getParameter("pwd");
-	
-	boolean result = dao.boardDelete(Integer.parseInt(no),pwd);
-	
-	if(result == true){
+
+	int result = dao.boardDelete(Integer.parseInt(no), pwd);
+	if (result == 1) {
 %>
-	<script type="text/javascript">
+	<script>
 		alert("데이터가 삭제됐습니다.");
 		location.href="list.jsp";
 	</script>
-<%	
-	}else{
+<%
+	} else {
 %>
-	<script type="text/javascript">
+	<script>
 		alert("비밀번호가 틀립니다.");
 		history.back();
 	</script>

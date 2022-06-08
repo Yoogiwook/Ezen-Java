@@ -106,7 +106,7 @@
 				<Context docBase="web-study-09" path="/web-study-09" reloadable="true" source="org.eclipse.jst.jee.server:web-study-09">
 					<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
 				</Context>
-			<Context docBase="BoardjspProject" path="/BoardjspProject" reloadable="true" source="org.eclipse.jst.jee.server:BoardjspProject"/></Host>
+			<Context docBase="BoardjspProject" path="/BoardjspProject" reloadable="true" source="org.eclipse.jst.jee.server:BoardjspProject"/><Context docBase="BoardjspProject2" path="/BoardjspProject2" reloadable="true" source="org.eclipse.jst.jee.server:BoardjspProject2"/></Host>
 		</Engine>
 	</Service>
 </Server>

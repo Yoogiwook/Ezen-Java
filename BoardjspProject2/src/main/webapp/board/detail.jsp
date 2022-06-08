@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.it.dao.*"%>
+    pageEncoding="UTF-8" import="com.it.dao.*" %>
 <jsp:useBean id="dao" class="com.it.dao.BoardDAO"></jsp:useBean>
 <%
 	String no = request.getParameter("no");
-	BoardVO vo = dao.boardDetailDate(Integer.parseInt(no));
+	BoardVO vo = dao.boardDetailData(Integer.parseInt(no));
 %>
 <!DOCTYPE html>
 <html>
@@ -45,7 +45,7 @@ h1 {
 				</tr>
 				<tr>
 					<th width=20% class="text-center danger">제목</th>
-					<td colspan="3"><%= vo.getSubject() %></td>
+					<td colspan="3"><%= vo.getSubject() %>
 				</tr>
 				<tr>
 					<td colspan="4" class="text-left" height="200">
