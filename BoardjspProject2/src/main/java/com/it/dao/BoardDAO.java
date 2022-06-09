@@ -270,7 +270,9 @@ public class BoardDAO {
 			if(chk.equals(qr)) {
 				chk_no = true;
 				sql = "select no from jspBoard2 where "+sel+"="+qr;
+				ps = conn.prepareStatement(sql);
 				vo.setNo(rs.getInt(1));
+				ps.executeQuery();
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
