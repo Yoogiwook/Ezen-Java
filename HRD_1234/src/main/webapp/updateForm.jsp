@@ -23,13 +23,14 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/common.css"/>
+<script type="text/javascript" src="script/Check.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 		<section>
 			<h3>홈쇼핑 회원 정보 수정</h3>
-			<form method="post" action="updateImpl.jsp">
+			<form method="post" action="updateImpl.jsp" name="frm">
 <%
 	if(rs.next()){
 %>
@@ -64,7 +65,7 @@
 					</tr>
 					<tr>
 						<th colspan="2">
-							<input type="submit" value="수 정">
+							<input type="submit" value="수 정" onclick="return joinChk()">
 							<input type="button" value="조 회">
 						</th>
 					</tr>

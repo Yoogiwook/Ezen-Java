@@ -10,7 +10,8 @@
 	String grade = request.getParameter("grade");
 	String city = request.getParameter("city");
 	
-	String sql = "insert into member_tbl_02 values(?,?,?,?,?,?,?)";
+	String sql = "update member_tbl_02 set custname=?, phone=?, address=?, "
+				+ "joindate=?, grade=?, city=? where custno=?";
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -21,13 +22,13 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url,id,pwd);
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, custno);
-		pstmt.setString(2, custname);
-		pstmt.setString(3, phone);
-		pstmt.setString(4, address);
-		pstmt.setString(5, joindate);
-		pstmt.setString(6, grade);
-		pstmt.setString(7, city);
+		pstmt.setString(1, custname);
+		pstmt.setString(2, phone);
+		pstmt.setString(3, address);
+		pstmt.setString(4, joindate);
+		pstmt.setString(5, grade);
+		pstmt.setString(6, city);
+		pstmt.setString(7, custno);
 		int result = pstmt.executeUpdate();
 	}catch(Exception e){
 		e.printStackTrace();
@@ -41,6 +42,6 @@
 	}
 %>
 <script type="text/javascript">
-	alert("회원 등록이 완료되었습니다.");
+	alert("회원 수정이 완료되었습니다.");
 	location.href="memberForm.jsp";
 </script>

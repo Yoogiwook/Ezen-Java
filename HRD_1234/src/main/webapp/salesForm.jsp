@@ -8,7 +8,9 @@
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "system";
 	String pwd = "1234";
-	String sql = "select * from member_tbl_02";
+	String sql = "select M.custno, M.custname, M.grade, sum(O.price) " 
+			+ "from member_tbl_02 M, money_tbl_02 O where M.CUSTNO = O.CUSTNO " 
+			+ "group by M.custno, M.custname, M.grade order by sum(O.price) desc";
 	
 	try{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -26,37 +28,32 @@
 <body>
 	<%@ include file="header.jsp" %>
 	<section>
-		<h3>회원목록조회/수정</h3>
-			<table border="1" style="margin-left: auto; margin-right: auto;">
-				<tr>
-					<th>회원번호</th>
-					<th>회원성명</th>
-					<th>전화번호</th>
-					<th>주소</th>
-					<th>가입일자</th>
-					<th>고객등급</th>
-					<th>거주지역</th>
-				</tr>
+		<h3>회원매출조회</h3>
+		<table border="1" style="margin-left: auto; margin-right: auto;">
+			<tr>
+				<th>회원번호</th>
+				<th>회원성명</th>
+				<th>고객등급</th>
+				<th>매출</th>
+			</tr>
 <%
 	while(rs.next()){
 		String grade = "직원";
-		if(rs.getString(6).equals("A")) grade = "VIP";
-		else if(rs.getString(6).equals("B")) grade = "일반";
+		if(rs.getString(3).equals("A")) grade = "VIP";
+		else if(rs.getString(3).equals("B")) grade = "일반";
 %>
 		<tr>
-			<td><a href="updateForm.jsp?custno=<%=rs.getString("custno") %>"><%=rs.getString(1) %></a></td>
+			<td><%=rs.getString(1) %></td>
 			<td><%=rs.getString(2) %></td>
-			<td><%=rs.getString(3) %></td>
-			<td><%=rs.getString(4) %></td>
-			<td><%=rs.getString(5).substring(0,10) %></td>
 			<td><%=grade %></td>
-			<td><%=rs.getString(7) %></td>
-		</tr>
-<%		
+			<td><%=rs.getString(4) %></td>
+		</tr>		
+<%
 	}
 %>
-			</table>
+		</table>
 	</section>
+	
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -24,6 +24,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/common.css"/>
+<script type="text/javascript" src="script/Check.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
 	<%@ include file="header.jsp" %>
 	<section>
 		<h3>쇼핑몰 회원 등록</h3>
-		<form method="post" action="joinImpl.jsp">
+		<form method="post" action="joinImpl.jsp" name="frm">
 			<table border="1" style="margin-left: auto; margin-right: auto;">
 				<tr>
 					<th>회원번호(자동발생)</th>
@@ -63,8 +64,8 @@
 				</tr>
 				<tr>
 					<th colspan="2">
-						<input type="submit" value="등록">
-						<input type="button" value="조회">
+						<input type="submit" value="등 록" onclick="return joinChk()">
+						<input type="button" value="조 회">
 					</th>	
 				</tr>
 			</table>
