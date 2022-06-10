@@ -3,18 +3,21 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	Connection conn = null;
-	PreparedStatement pstmt = null;
+	PreparedStatement ps = null;
 	ResultSet rs = null;
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "system";
 	String pwd = "1234";
-	String sql = "select * from member_tbl_02 order by custno";
+	String sql = "select * from member_tbl_02 where address like ?";
+	
+	String search = request.getParameter("search");
 	
 	try{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url,id,pwd);
-		pstmt = conn.prepareStatement(sql);
-		rs = pstmt.executeQuery();
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, "%"+search+"%");
+		rs = ps.executeQuery();
 %>
 <!DOCTYPE html>
 <html>
@@ -26,7 +29,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 	<section>
-		<h3>회원목록조회/수정</h3>
+		<h3>회원목록조회</h3>
 		<form method="post" action="searchForm.jsp">
 			<div style="text-align: center;">
 				<input type="text" name="search">
@@ -72,7 +75,7 @@
 	}finally{
 		try{
 			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
+			if(ps != null) ps.close();
 			if(conn != null) conn.close();
 		}catch(Exception e){
 			e.printStackTrace();

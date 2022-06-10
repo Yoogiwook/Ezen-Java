@@ -28,7 +28,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<%@ include file="header.jsp" %>
 	<section>
 		<h3>쇼핑몰 회원 등록</h3>
@@ -52,26 +51,25 @@
 				</tr>
 				<tr>
 					<th>가입일자</th>
-					<td><input type="text" id="date" name="joindate"></td>
+					<td><input type="text" name="joindate"></td>
 				</tr>
 				<tr>
 					<th>고객등급 [A:VIP,B:일반,C:직원]</th>
-					<td><input type="text" id="fname" name="grade"></td>
+					<td><input type="text" name="grade"></td>
 				</tr>
 				<tr>
 					<th>도시코드</th>
-					<td><input type="text" id="city_num" name="city"></td>
+					<td><input type="text" name="city"></td>
 				</tr>
 				<tr>
 					<th colspan="2">
 						<input type="submit" value="등 록" onclick="return joinChk()">
-						<input type="button" value="조 회">
+						<input type="button" value="조 회" onclick="location.href='memberForm.jsp'">
 					</th>	
 				</tr>
 			</table>
 		</form>
 	</section>
-	
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

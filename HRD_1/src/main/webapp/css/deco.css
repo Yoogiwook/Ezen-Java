@@ -1,0 +1,14 @@
+@charset "UTF-8";
+* { margin: 0; box-sizing: border-box; }
+ul,ol,li { list-style: none;}
+a { text-decoration: none;}
+header { margin: 0 auto; background-color: blue; height: 100px; width: 1100px;}
+header h1 { text-align: center; color: white; padding-top: 30px;}
+nav { margin: 0 auto; background-color: skyblue; height: 40px; width: 1100px;}
+nav li a { float: left; padding: 10px 30px 0 15px; color: white;}
+section { margin: 0 auto; height: 700px; width: 1100px; background-color: #ddd;}
+section h3 { text-align: center; padding-top: 30px; padding-bottom: 30px;}
+section div { padding-left: 20px;}
+section ol li { list-style: decimal;}
+footer { margin: 0 auto; height: 80px; width: 1100px; background-color: blue;}
+footer p { text-align: center; padding-top: 30px; color: white;}

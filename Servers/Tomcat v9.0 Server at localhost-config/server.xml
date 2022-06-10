@@ -103,10 +103,8 @@
 				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 
-				<Context docBase="web-study-09" path="/web-study-09" reloadable="true" source="org.eclipse.jst.jee.server:web-study-09">
-					<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
-				</Context>
-			<Context docBase="BoardjspProject" path="/BoardjspProject" reloadable="true" source="org.eclipse.jst.jee.server:BoardjspProject"/><Context docBase="BoardjspProject2" path="/BoardjspProject2" reloadable="true" source="org.eclipse.jst.jee.server:BoardjspProject2"/><Context docBase="HRD_1234" path="/HRD_1234" reloadable="true" source="org.eclipse.jst.jee.server:HRD_1234"/><Context docBase="hrd정보처리산업기사" path="/hrd정보처리산업기사" reloadable="true" source="org.eclipse.jst.jee.server:hrd정보처리산업기사"/></Host>
+				
+			<Context docBase="HRD_1" path="/HRD_1" reloadable="true" source="org.eclipse.jst.jee.server:HRD_1"/><Context docBase="HRD_1234" path="/HRD_1234" reloadable="true" source="org.eclipse.jst.jee.server:HRD_1234"/></Host>
 		</Engine>
 	</Service>
 </Server>
