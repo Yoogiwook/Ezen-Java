@@ -119,22 +119,27 @@
 
 
 
-				<Context docBase="HRD_1" path="/HRD_1" reloadable="true"
-					source="org.eclipse.jst.jee.server:HRD_1" />
-				<Context docBase="HRD_1234" path="/HRD_1234"
-					reloadable="true" source="org.eclipse.jst.jee.server:HRD_1234" />
-				<Context docBase="HRD_servlet" path="/HRD_servlet"
-					reloadable="true" source="org.eclipse.jst.jee.server:HRD_servlet" />
-				<Context docBase="JusoTest" path="/JusoTest"
-					reloadable="true" source="org.eclipse.jst.jee.server:JusoTest" />
-				<Context docBase="web-study-10" path="/web-study-10"
-					reloadable="true" source="org.eclipse.jst.jee.server:web-study-10" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<Context docBase="movieProject" path="/movieProject"
+					reloadable="true" source="org.eclipse.jst.jee.server:movieProject">
 					<Resource name="jdbc/myoracle" auth="Container"
-			              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
-			              url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-			              username="scott" password="tiger" maxTotal="20" maxIdle="10"
-			              maxWaitMillis="-1"/>	
-				</Context>	
+						type="javax.sql.DataSource"
+						driverClassName="oracle.jdbc.OracleDriver"
+						url="jdbc:oracle:thin:@127.0.0.1:1521:XE" username="scott"
+						password="tiger" maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
+				</Context>
 			</Host>
 		</Engine>
 	</Service>

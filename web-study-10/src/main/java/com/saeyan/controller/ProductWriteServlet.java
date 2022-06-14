@@ -16,14 +16,8 @@ import com.saeyan.dao.ProductDAO;
 import com.saeyan.dto.ProductVO;
 
 @WebServlet("/productWrite.do")
-public class ProductWriteServlet extends HttpServlet {
+public class productWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("product/productWrite.jsp");
-		dispatcher.forward(request, response);
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
@@ -34,24 +28,28 @@ public class ProductWriteServlet extends HttpServlet {
 		
 		MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
 		
-		String name = multi.getParameter("name");
-		int price = Integer.parseInt(multi.getParameter("price"));
+		String name=multi.getParameter("name");
+		int price=Integer.parseInt(multi.getParameter("price"));
 		String description = multi.getParameter("description");
-		String pictureurl = multi.getFilesystemName("pictureurl");
-		ProductVO vo = new ProductVO();
-		vo.setName(name);
-		vo.setPrice(price);
-		vo.setDescription(description);
-		vo.setPictureurl(pictureurl);
+		String pictureUrl = multi.getFilesystemName("pictureUrl");
 		
-		ProductDAO dao = ProductDAO.getInstance();
-		int result = dao.insertProduct(vo);
+		ProductVO pVo = new ProductVO();
+		pVo.setName(name);
+		pVo.setPrice(price);
+		pVo.setDescription(description);
+		pVo.setPictureUrl(pictureUrl);
+		
+		ProductDAO pDao = ProductDAO.getInstance();
+		int result = pDao.insertProduct(pVo);
 		if(result == 1) {
 			response.sendRedirect("productList.do");
 		}else {
-			
-			response.sendRedirect("/product/productWrite.jsp");
-		}
+		response.sendRedirect("/product/productWrite.do");
+		
 	}
-
-}
+	}
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    RequestDispatcher dispatcher = request.getRequestDispatcher("product/productWrite.jsp");
+    dispatcher.forward(request, response);
+}    
+ }

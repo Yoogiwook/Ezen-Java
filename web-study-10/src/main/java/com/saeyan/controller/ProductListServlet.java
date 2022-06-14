@@ -14,21 +14,17 @@ import com.saeyan.dao.ProductDAO;
 import com.saeyan.dto.ProductVO;
 
 @WebServlet("/productList.do")
-public class ProductListServlet extends HttpServlet {
+public class productListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ProductDAO pDao = ProductDAO.getInstance();
 		
-		ProductDAO dao = ProductDAO.getInstance();
-		
-		List<ProductVO> vo = dao.selectAllProducts();
+		List<ProductVO> vo = pDao.selectAllProducts(); //데이타 vo에 저장 
 		request.setAttribute("productList", vo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("product/productList.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }

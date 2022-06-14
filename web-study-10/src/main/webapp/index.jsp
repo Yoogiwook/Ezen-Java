@@ -1,7 +1,5 @@
-<%@page import="util.DBManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="util.*"%>
+    pageEncoding="UTF-8" import = "util.*"%>
 <%
-	DBManager.getConnection();
+response.sendRedirect("productList.do");
 %>
- <jsp:forward page="productList.do" />
