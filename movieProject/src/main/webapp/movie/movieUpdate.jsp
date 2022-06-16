@@ -13,8 +13,7 @@
 <h1>정보 수정</h1>
 <form method="post" enctype="multipart/form-data" name="frm">
 	<input type="hidden" name="code" value="${movie.code }">
-	<input type="hidden" name="nonmakeImg" value="${movie.poster }">
-	<table>
+	<input type="hidden" name="nonmakeImg" value="${movie.poster }">	<table>
 		<tr>
 			<td>
 				<c:choose>

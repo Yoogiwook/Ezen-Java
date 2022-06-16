@@ -1,0 +1,2 @@
+list 요청 > BoardServlet.java > ActionFactory.java > BoardListAction.java > BoardList.jsp
+view 요청 > BoardServlet.java > ActionFactory.java > BoardViewAction.java > boardView.jsp

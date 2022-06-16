@@ -1,0 +1,42 @@
+#wrap{
+	width: 971px;
+	
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	
+h1 {
+	color: green;
+}	
+
+table{
+	width: 100%;
+	border-collpase: collapse;
+	font-size: 12px;
+	line-height: 24px;
+}
+
+table td, th{
+	border: #d3d3d3 solid 1px; /* 경계선 색상 스타일 굵기 */
+	padding: 5px; /* 여백 */
+}
+
+th{
+	background: yellowgreen;
+}
+
+img{
+	width: 220px;
+	height: 300px;
+}
+
+a{
+	text-decoration: none;  /* 링크 밑줄 없애기 */
+	color:black;
+}
+	
+a:HOVER{
+	text-decoration: underline;
+	color:green;
+}
