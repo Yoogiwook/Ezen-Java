@@ -147,13 +147,21 @@
 
 				<Context docBase="EmployeesProject" path="/EmployeesProject"
 					reloadable="true"
-					source="org.eclipse.jst.jee.server:EmployeesProject" >
+					source="org.eclipse.jst.jee.server:EmployeesProject">
 					<Resource auth="Container"
 						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
 						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
 						password="tiger" type="javax.sql.DataSource"
 						url="jdbc:oracle:thin:@127.0.0.1:1521:XE" username="scott" />
 				</Context>
+				<Context docBase="empProject" path="/empProject"
+					reloadable="true" source="org.eclipse.jst.jee.server:empProject" >
+					<Resource auth="Container"
+						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
+						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
+						password="tiger" type="javax.sql.DataSource"
+						url="jdbc:oracle:thin:@127.0.0.1:1521:XE" username="scott" />
+				</Context>	
 			</Host>
 		</Engine>
 	</Service>
