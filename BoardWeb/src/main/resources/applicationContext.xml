@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="tv" class="polymorphism.SamsungTV"/>
-	<bean id="tv2" class="polymorphism.LgTV"/>
+	<bean id="CollectionBean" class="com.springbook.ioc.injection.CollectionBean">
+		<property name="addressList">
+			<list>
+				<value>서울시 강남구 역삼동</value>
+				<value>서울시 성동구 행당동</value>
+			</list>
+		</property>
+		
+		<property name="addressSet">
+			<set value-type="java.lang.String">
+				<value>서울시 강남구 역삼동</value>
+				<value>서울시 성동구 성수동</value>
+				<value>서울시 성동구 성수동</value>
+			</set>
+		</property>
+		<property name="addressMap">
+			<map>
+				<entry>
+					<key><value>고길동</value></key>
+					<value>서울시 강남구 역삼동</value>
+				</entry>
+				<entry key="마이콜" value="서울시 강서구 화곡동"/>
+<!-- 					<key><value>마이콜</value></key> -->
+<!-- 					<value>서울시 강서구 화곡동</value> -->
+<!-- 				</entry> -->
+			</map>
+		</property>
+		<property name="addressProp">
+			<props>
+				<prop key="고길동2">서울시 강남구  역삼동</prop>
+				<prop key="마이콜2">서울시 강서구  화곡동</prop>
+			</props>
+		</property>
+	</bean>
 </beans>
