@@ -1,5 +1,8 @@
 package polymorphism;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SonySpeaker implements Speaker{
 	public SonySpeaker() {
 		System.out.println("===> SonySpeaker 생성자");

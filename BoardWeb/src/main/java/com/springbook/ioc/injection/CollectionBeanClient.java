@@ -17,18 +17,19 @@ public class CollectionBeanClient {
 		List<String> addressList = bean.getAddressList();
 		for (String address : addressList)
 			System.out.println(address);
-		System.out.println("---------------");
+		System.out.println("---List------------");
 		Set<String> addressSet = bean.getAddressSet();
 		for (String address : addressSet)
 			System.out.println(address);
-		System.out.println("---------------");
+		System.out.println("---Set------------");
 		Map<String, String> addressMap = bean.getAddressMap();
 		for(String address : addressMap.keySet())
 			System.out.println(address + ", " + addressMap.get(address));
-		System.out.println("---------------");
+		System.out.println("---Map------------");
 		Properties addressProp = bean.getAddressProp();
-		for(String address : addressProp.getProperty(address))
-			System.out.println();
+		for(String address : addressProp.stringPropertyNames())
+			System.out.println(String.format("key : %s, value : %s", address, addressProp.get(address)));
+		System.out.println("---Properties------------");
 		factory.close();
 	}
 
