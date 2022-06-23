@@ -12,11 +12,12 @@
 		base-package="com.springbook.biz">
 	</context:component-scan>
 
-	<bean id="log" class="com.springbook.biz.common.Log4jAdvice" />
+	<bean id="aroundAdvice" class="com.springbook.biz.common.AroundAdvice" />
 	<aop:config>
 		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
-		<aop:aspect ref="log">
-			<aop:before pointcut-ref="allPointcut" method="printLogging" />
+		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />
+		<aop:aspect ref="aroundAdvice">
+			<aop:around pointcut-ref="allPointcut" method="aroundLog" />
 		</aop:aspect>
 	</aop:config>
 
