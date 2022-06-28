@@ -65,10 +65,10 @@ h1 {
 							<input type="hidden" name="no" value=<%=no %> id="no">
 						</td>
 					</tr>
-					<td class="text-center">
-						<input type="submit" value="삭제" class="btn btn-sm btn-primary" id="delBtn">
-						<input type="button" value="취소" class="btn btn-sm btn-primary" onclick="javascript:history.back()">
-					</td>
+						<td class="text-center">
+							<input type="submit" value="삭제" class="btn btn-sm btn-primary" id="delBtn">
+							<input type="button" value="취소" class="btn btn-sm btn-primary" onclick="javascript:history.back()">
+						</td>
 				</table>
 			</form>
 		</div>
