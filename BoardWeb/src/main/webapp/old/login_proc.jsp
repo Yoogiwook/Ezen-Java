@@ -17,7 +17,7 @@
 	UserVO user = userDAO.getUser(vo);
 	
 	if(user != null){
-		//세션 등록
+		// 여기에서 세션 등록
 		response.sendRedirect("getBoardList.jsp");
 	} else{
 		response.sendRedirect("login.jsp");
