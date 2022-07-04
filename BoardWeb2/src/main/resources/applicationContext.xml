@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:component-scan
+		base-package="com.springbook.biz">
+	</context:component-scan>
+
+	<context:property-placeholder location="classpath:config/database.properties"/>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.springbook.biz..*(..))"  id="txPointcut"/>
+		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+	</aop:config>
+<!-- 	<bean id="aroundAdvice" class="com.springbook.biz.common.AroundAdvice" /> -->
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" /> -->
+<!-- 		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" /> -->
+<!-- 		<aop:aspect ref="aroundAdvice"> -->
+<!-- 			<aop:around pointcut-ref="allPointcut" method="aroundLog" /> -->
+<!-- 		</aop:aspect> -->
+<!-- 	</aop:config> -->
+
+
+	<!-- <bean id="CollectionBean" class="com.springbook.ioc.injection.CollectionBean"> -->
+	<!-- <property name="addressList"> -->
+	<!-- <list> -->
+	<!-- <value>서울시 강남구 역삼동</value> -->
+	<!-- <value>서울시 성동구 행당동</value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+
+	<!-- <property name="addressSet"> -->
+	<!-- <set value-type="java.lang.String"> -->
+	<!-- <value>서울시 강남구 역삼동</value> -->
+	<!-- <value>서울시 성동구 성수동</value> -->
+	<!-- <value>서울시 성동구 성수동</value> -->
+	<!-- </set> -->
+	<!-- </property> -->
+	<!-- <property name="addressMap"> -->
+	<!-- <map> -->
+	<!-- <entry> -->
+	<!-- <key><value>고길동</value></key> -->
+	<!-- <value>서울시 강남구 역삼동</value> -->
+	<!-- </entry> -->
+	<!-- <entry key="마이콜" value="서울시 강서구 화곡동"/> -->
+	<!-- <key><value>마이콜</value></key> -->
+	<!-- <value>서울시 강서구 화곡동</value> -->
+	<!-- </entry> -->
+	<!-- </map> -->
+	<!-- </property> -->
+	<!-- <property name="addressProp"> -->
+	<!-- <props> -->
+	<!-- <prop key="고길동">서울시 강남구 역삼동</prop> -->
+	<!-- <prop key="마이콜">서울시 강서구 화곡동</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+</beans>

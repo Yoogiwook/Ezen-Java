@@ -125,7 +125,7 @@
 
 				
 					
-			<Context docBase="BoardWeb" path="/BoardWeb" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb"/></Host>
+			<Context docBase="BoardWeb" path="/BoardWeb" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb"/><Context docBase="OEMarket" path="/oe" reloadable="true" source="org.eclipse.jst.jee.server:OEMarket"/><Context docBase="BoardWeb2" path="/biz" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb2"/></Host>
 		</Engine>
 	</Service>
 </Server>
