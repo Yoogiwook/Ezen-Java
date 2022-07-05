@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LogoutController {
 
 	@RequestMapping("logout.do")
-	public String handleRequest(HttpSession session) {
+	public String logout(HttpSession session) {
 		System.out.println("로그아웃 처리");
 		
 		session.invalidate();

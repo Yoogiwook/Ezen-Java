@@ -119,13 +119,14 @@
 
 
 
-				
 
 
 
-				
-					
-			<Context docBase="BoardWeb" path="/BoardWeb" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb"/><Context docBase="OEMarket" path="/oe" reloadable="true" source="org.eclipse.jst.jee.server:OEMarket"/><Context docBase="BoardWeb2" path="/biz" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb2"/></Host>
+
+
+
+				<Context docBase="BoardWeb2" path="/biz" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb2"/>
+			<Context docBase="bookShop01" path="/bookshop01" reloadable="true" source="org.eclipse.jst.jee.server:bookShop01"/></Host>
 		</Engine>
 	</Service>
 </Server>
