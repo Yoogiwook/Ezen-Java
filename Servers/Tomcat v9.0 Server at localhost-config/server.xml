@@ -125,8 +125,8 @@
 
 
 
-				<Context docBase="BoardWeb2" path="/biz" reloadable="true" source="org.eclipse.jst.jee.server:BoardWeb2"/>
-			<Context docBase="bookShop01" path="/bookshop01" reloadable="true" source="org.eclipse.jst.jee.server:bookShop01"/></Host>
+				
+			<Context docBase="MybatisProject" path="/biz" reloadable="true" source="org.eclipse.jst.jee.server:MybatisProject"/></Host>
 		</Engine>
 	</Service>
 </Server>

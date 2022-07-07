@@ -19,7 +19,7 @@
 
 
 	<div align="center">
-        <form action="insertUser.do" method="post" name="form">
+        <form action="joinUser.do" method="post" name="form">
         <h1>회원가입</h1>
         <table >
             <tr>
