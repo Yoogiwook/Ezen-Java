@@ -63,17 +63,17 @@
             <tr>
                 <th>주소</th>
                 <td colspan="2">
-                    <input type="text" name="address"  size="8" >
-                    <input type="button" value="우편번호 찾기" onclick="addressChk()">
+                    <input type="text" name="address1"  size="8"  readonly>
+                    <input type="button" value="우편번호 찾기" onclick="addressChk()" >
                 </td>
             </tr>
             <tr>
-                <td colspan="3" align="center" style="padding-left: 33px; ">
-                <input type="text" size="35">
+                <td colspan="3" align="center" style="padding-left: 33px; " >
+                <input type="text" name="address2" size="35"  readonly></td>
             </tr>
             <tr>
                 <td colspan="3" align="center" style="padding-left: 33px; ">
-                <input type="text" name="addressPlus" size="35">
+                <input type="text" name="address3" size="35"></td>
             </tr>
             <tr>
                 <th>전화번호</th>

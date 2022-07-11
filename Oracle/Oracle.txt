@@ -1,3 +1,8 @@
+system 계정에서
+select dbms_xdb.gethttpport() from dual; -- oracle port 번호 확인
+
+exec dbms_xdb.sethttpport(8080); -- oracle port 번호 변경
+
 계정 활성화
 system 계정 접속 후 > alter user 계정명 account unlock identified by 비밀번호;
 

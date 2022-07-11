@@ -1,7 +1,8 @@
 package com.ezen.market.OEM;
 
-import java.io.File;
 import java.sql.Date;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
@@ -29,7 +30,7 @@ public class OEMarketBoardVO {
 	private String title;
 	private int price;
 	private String content;
-	private File image;
+	private MultipartFile image;
 	private Date bdate;
 	private int count;
 	private int heart;

@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <a href="#" class="plus-button"><i class="fa fa-plus"></i></a>
+                    <a href="insert.jsp" class="plus-button"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
         </div>
