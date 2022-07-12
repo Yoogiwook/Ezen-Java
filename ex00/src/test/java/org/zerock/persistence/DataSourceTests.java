@@ -17,33 +17,33 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
-public class DataSourceTest {
-	
+public class DataSourceTests {
+
 	@Autowired
 	private DataSource dataSource;
-	
+
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
-	
+
 	@Test
 	public void testConnection() {
-		try(Connection conn = dataSource.getConnection()) {
-			log.info(conn);
-		}catch (Exception e) {
+		try (Connection con = dataSource.getConnection()) {
+			log.info("---------------------------------");
+			log.info(con);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Test
 	public void testMybatis() {
-		try(SqlSession session = sqlSessionFactory.openSession();
-				Connection conn  = session.getConnection()) {
-			log.info("---------------------");
-			log.info(conn);
+		try (SqlSession session = sqlSessionFactory.openSession();
+				Connection con = session.getConnection()) {
+			log.info("---------------------------------");
+			log.info(con);
 			log.info(session);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 }

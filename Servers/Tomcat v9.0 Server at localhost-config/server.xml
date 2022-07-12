@@ -126,7 +126,7 @@
 
 
 				
-			<Context docBase="ex01" path="/" reloadable="true" source="org.eclipse.jst.jee.server:ex01"/><Context docBase="OEMarket" path="/oe" reloadable="true" source="org.eclipse.jst.jee.server:OEMarket"/></Host>
+			<Context docBase="ex00" path="/" reloadable="true" source="org.eclipse.jst.jee.server:ex00"/></Host>
 		</Engine>
 	</Service>
 </Server>
