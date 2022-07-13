@@ -55,9 +55,9 @@ public class BoardMapperTests {
 		public void testupdate() {
 			BoardVO vo = new BoardVO();
 			vo.setBno(5L);
-			vo.setTitle("오라클1");
-			vo.setContent("oracle1");
-			vo.setWriter("oracle1");
+			vo.setTitle("오라클2");
+			vo.setContent("oracle2");
+			vo.setWriter("oracle2");
 			log.info("update : " + mapper.update(vo));
 		}
 }

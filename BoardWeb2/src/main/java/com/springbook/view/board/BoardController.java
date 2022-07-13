@@ -29,7 +29,7 @@ public class BoardController {
    @RequestMapping("/insertBoard.do")
    public String insertBoard(BoardVO vo) throws IOException {
 	   MultipartFile uploadFile = vo.getUploadFile();
-	   if(!uploadFile.isEmpty()) {
+	   if(!uploadFile.isEmpty()) { 
 		   String fileName = uploadFile.getOriginalFilename();
 		   uploadFile.transferTo(new File("C:/upload/"+fileName));
 	   }
@@ -43,7 +43,7 @@ public class BoardController {
 	   boardService.updateBoard(vo);
       return "getBoardList.do";
    } //end of updateBoard
-   
+
 //   글 삭제
    @RequestMapping("/deleteBoard.do")
    public String deleteBoard(BoardVO vo) {
