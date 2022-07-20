@@ -20,13 +20,13 @@ public class PageDTO {
 		this.endPage = (int)(Math.ceil(cri.getPageNum()/10.0)) * 10;
 		this.startPage = endPage-9;
 									//1.0 곱한 이유는 소숫점 만들기 위해 정수/정수의 결과는 정수가 나와서
-		int readEnd = (int)(Math.ceil(total*1.0)/cri.getAmount());
+		int realEnd = (int)(Math.ceil(total*1.0)/cri.getAmount());
 		
-		if(endPage > readEnd) {
-			endPage = readEnd;
+		if(endPage > realEnd) {
+			endPage = realEnd;
 		}
 		
 		this.prev = this.startPage > 1;
-		this.next = this.endPage < readEnd;
+		this.next = this.endPage < realEnd;
 	}
 }
