@@ -95,4 +95,22 @@ public class BoardMapperTests {
 		List<BoardVO> list = mapper.searchTest(outer);
 		log.info(list);
 	}
+
+	@Test
+	public void testSearchPaging() {
+		Criteria cri = new Criteria();
+		cri.setType("TCW");
+		cri.setKeyword("q");
+		List<BoardVO> list = mapper.getListWithPagging(cri);
+		log.info(list);
+	}
+	
+	@Test
+	public void testTotal() {
+		Criteria cri = new Criteria();
+		cri.setType("TCW");
+		cri.setKeyword("q");
+		int count = mapper.getTotalCount(cri);
+		log.info("count : " + count);
+	}
 }
