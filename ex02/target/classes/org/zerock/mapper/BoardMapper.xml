@@ -4,20 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.zerock.mapper.BoardMapper">
-
-	<sql id="criterial">
+	
+	<sql id="Criterial">
 		<trim prefix="(" suffix=") and">
-		    <foreach collection="typeArr" item="type" separator="or">
-		    	<if test="type=='T'.toString()">
-		    		title like '%' || #{keyword} || '%'
-		    	</if>
-		    	<if test="type=='C'.toString()">
-		    		content like '%' || #{keyword} || '%'
-		    	</if>
-		    	<if test="type=='W'.toString()">
-		    		writer like '%' || #{keyword} || '%'
-		    	</if>
-		    </foreach>
+			<foreach collection="typeArr" item="type" separator="or">
+				<if test="type=='T'.toString()">
+					title like '%' || #{keyword} || '%'
+				</if>
+				<if test="type=='C'.toString()">
+					content like '%' || #{keyword} || '%'
+				</if>
+				<if test="type=='W'.toString()">
+					writer like '%' || #{keyword} || '%'
+				</if>
+			</foreach>
     	</trim>
 	</sql>
 
@@ -52,18 +52,6 @@
 		updatedate=sysdate where bno=#{bno}
 	</update>
 
-	<!-- <select id="getListWithPagging" resultType="org.zerock.domain.BoardVO">
-	<![CDATA[
-		select bno, title, content, writer, regdate, updatedate
-	      from (
-	         select /*+ index_desc(tbl_board pk_board) */
-	         rownum rn, bno, title,content, writer,regdate, updatedate
-	         from tbl_board
-	         where ROWNUM <= #{pageNum} * #{amount}
-	      )
-	      where rn > (#{pageNum}-1) * #{amount}
-    ]]>
-	</select> -->
 	<select id="getListWithPagging" resultType="org.zerock.domain.BoardVO">
 	<![CDATA[
 		select bno, title, content, writer, regdate, updatedate
@@ -71,48 +59,48 @@
 	         select /*+ index_desc(tbl_board pk_board) */
 	         rownum rn, bno, title,content, writer,regdate, updatedate
 	         from tbl_board
-	         where
+	         where 
     ]]>
-    
-    <include refid="criterial"></include>
-    
-    <![CDATA[
-	      ROWNUM <= #{pageNum} * #{amount} )
-	      where 
-	      rn > (#{pageNum}-1) * #{amount}
+    	<include refid="Criterial"></include>
+	<![CDATA[
+	         ROWNUM <= #{pageNum} * #{amount}
+	      )
+	      where
+	       rn > (#{pageNum}-1) * #{amount}
     ]]>
 	</select>
 <!-- 	/*+ index_desc(tbl_board pk_board) */  << 힌트 검색 시간을 줄여줌 -->
 
 	<select id="getTotalCount" resultType="int">
 		select count(*) from tbl_board where 
+
+    	<include refid="Criterial"></include>
 		
-		<include refid="criterial"></include>
-		
+	<![CDATA[
 		bno>0
+    ]]>
 	</select>
 	
 	<!-- 검색조건 -->
+	
 	<select id="searchTest" resultType="org.zerock.domain.BoardVO">
-	<![CDATA[
-		select * from tbl_board 
-		where
-    ]]>
-    <trim prefix="(" suffix=") and">
-		<foreach collection="map" index="key" item="val" separator="or">
-			<if test="key == 'T'.toString()">
-				title like #{val}
-			</if>
-			<if test="key == 'C'.toString()">
-				content like #{val}
-			</if>
-			<if test="key == 'W'.toString()">
-				writer like #{val}
-			</if>
-		</foreach>
-    </trim>
-	<![CDATA[
-		rownum < 10
-    ]]>
+			select * from tbl_board
+			where 
+			<trim prefix="(" suffix=") and">
+				<foreach collection="map" index="key" item="val" separator="or">
+					<if test="key == 'T'.toString()">
+						title like #{val}
+					</if>
+					<if test="key == 'C'.toString()">
+						content like #{val}
+					</if>
+					<if test="key == 'W'.toString()">
+						writer like #{val}
+					</if>
+				</foreach>
+			</trim>
+		<![CDATA[
+			rownum < 10
+		]]>
 	</select>
 </mapper>

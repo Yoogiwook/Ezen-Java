@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oe.mapper.MarketUserMapper">
+	<select id="loginUser" resultType="com.oe.domain.MarketUserVO">
+		select * from marketuser where us_pass = #{us_pass} and us_id =  
+		(select my_id from mypage where my_id = #{us_id} )
+	</select>
+	
+	<select id="findId" resultType="string">
+		select us_id from marketuser where us_name = #{us_name} and us_phone = #{us_phone}
+	</select>
+
+	<select id="findPass" resultType="string">
+		select us_pass from marketuser where us_id = #{us_id} and us_name = #{us_name} and us_phone = #{us_phone}
+	</select>
+
+	<insert id="joinUser">
+      insert into marketuser(us_num, us_id, us_pass, us_name, us_nickname, us_birth, us_email, us_gender, 
+      us_address1, us_address2, us_phone) 
+      values((select nvl(max(us_num), 0)+1 from marketuser),#{us_id},#{us_pass},#{us_name},#{us_nickname},
+      #{us_birth},#{us_email},#{us_gender},#{us_address1},#{us_address2},#{us_phone})
+   </insert>
+   
+   <update id="updateUser">
+      update marketuser set 
+      us_pass = #{us_pass},
+      us_name = #{us_name},
+      us_birth = #{us_birth},
+      us_gender = #{us_gender},
+      us_email = #{us_email},
+      us_address1 = #{us_address1},
+      us_address2 = #{us_address2},
+      us_phone = #{us_phone}
+      where us_id = #{us_id}
+   </update>
+	
+	<select id="readUser" resultType="com.oe.domain.MarketUserVO">
+		select * from marketuser where us_id = #{us_id}
+	</select>
+	
+	<insert id="joinMypage">
+		insert into mypage(MY_ID, my_nickname)
+		values(#{us_id}, #{us_nickname} )
+   </insert>
+   
+   <update id="updateAdrr">
+ 		update marketboard set
+		bo_address1 = #{us_address1},
+		bo_address2 = #{us_address2}
+		where bo_id = #{us_id}
+	</update>
+	
+	<select id="checkID" resultType="string">
+		select us_id from marketuser where us_id = #{us_id}
+	</select>
+	
+	<select id="checkNickname" resultType="string">
+		select us_nickname from marketuser where us_nickname = #{us_nickname}
+	</select>
+</mapper>

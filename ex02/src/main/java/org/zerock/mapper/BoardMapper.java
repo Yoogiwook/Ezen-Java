@@ -18,5 +18,5 @@ public interface BoardMapper {
 	public int getTotalCount(Criteria cri);
 	
 	//검색조건
-	public List<BoardVO> searchTest(Map<String, Map<String,String>> map);
+	public List<BoardVO> searchTest(Map<String, Map<String, String>> map);
 }

@@ -85,12 +85,12 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testSearchTest() {
-		Map<String, String> map = new HashMap<>();
-		map.put("T", "제목");
-		map.put("C", "내일");
-		map.put("W", "남궁성");
-		Map<String, Map<String, String>> outer = new HashMap<>();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("T", "한글");
+		map.put("C", "내용");
+		map.put("W", "꽈연");
 		
+		Map<String, Map<String, String>> outer = new HashMap<>(); 
 		outer.put("map", map);
 		List<BoardVO> list = mapper.searchTest(outer);
 		log.info(list);
@@ -109,7 +109,7 @@ public class BoardMapperTests {
 	public void testTotal() {
 		Criteria cri = new Criteria();
 		cri.setType("TCW");
-		cri.setKeyword("q");
+		cri.setKeyword("제목");
 		int count = mapper.getTotalCount(cri);
 		log.info("count : " + count);
 	}
