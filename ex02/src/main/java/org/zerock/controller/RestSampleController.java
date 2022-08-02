@@ -102,7 +102,7 @@ public class RestSampleController {
 	@GetMapping(value = "/product/{cat}/{pid}")
 	public String[] getPath(
 			@PathVariable("cat") String cat, 
-			@PathVariable("pid") String pid
+			@PathVariable("pid") String pid //경로를 포함하고 있을때 @PathVariable을 사용
 			) {
 		return new String[] { "category : " + cat, "productid : " + pid };
 	}
@@ -110,6 +110,9 @@ public class RestSampleController {
 	@PostMapping("/ticket")
 	public Ticket convert(@RequestBody Ticket ticket) {
 		log.info("convert : " + ticket);
+		ticket.setTno(200);
+		ticket.setOwner("홍길동");
+		ticket.setGrade("C등급");
 		return ticket;
 	}
 }
