@@ -111,6 +111,7 @@
 					<th>메시지</th>
 					<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
 					<th><button onclick="send()" id="sendBtn">보내기</button></th>
+				<th><button onclick="wsOpen()" id="startBtn">시작하기</button></th>
 				</tr>
 			</table>
 		</div>

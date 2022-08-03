@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oe.mapper.HeartBoardMapper">
+	<select id="readHB" resultType="com.oe.domain.HeartBoardVO">
+		SELECT *
+		FROM HEARTBOARD
+		WHERE HE_ID = #{he_id}
+	</select>
+	<select id="readMB" resultType="com.oe.domain.MarketBoardVO">
+		SELECT *
+		FROM MARKETBOARD
+		WHERE BO_NUM IN (
+			SELECT HE_BO_NUM
+			FROM HEARTBOARD
+			WHERE HE_ID = #{he_id}
+		)
+	</select>
+	<!-- <select id="getTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM HEARTBOARD
+		WHERE HE_ID = #{he_id}
+	</select> -->
+	<delete id="deleteHeart">
+		DELETE FROM HEARTBOARD
+		WHERE HE_BO_NUM = #{he_bo_num} AND HE_ID = #{he_id}
+	</delete>
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oe.mapper.MyPageMapper">
+	<select id="readMyPage" resultType="com.oe.domain.MyPageVO">
+		SELECT *
+		FROM MYPAGE
+		WHERE MY_ID = #{my_id}
+	</select>
+	<update id="updateMyPage">
+		UPDATE MYPAGE
+		SET MY_IMAGE = #{my_image},
+			MY_NICKNAME = #{my_nickname},
+			MY_INTRO = #{my_intro}
+		WHERE MY_ID = #{my_id}
+	</update>
+	<delete id="deleteMember">
+		DELETE FROM MYPAGE
+		WHERE MY_ID = #{my_id}
+	</delete>
+	<select id="readMarketUser" resultType="com.oe.domain.MarketUserVO">
+		SELECT *
+		FROM MARKETUSER
+		WHERE US_ID = #{my_id}
+	</select>
+	<select id="readCountHB" resultType="int">
+		SELECT COUNT(*)
+		FROM HEARTBOARD
+		WHERE HE_ID = #{my_id}
+	</select>
+	<update id="updateNick_marketuser">
+		UPDATE MARKETUSER
+		SET US_NICKNAME = #{my_nickname}
+		WHERE US_ID = #{my_id}
+	</update>
+	<update id="updateNick_marketboard">
+		UPDATE MARKETBOARD
+		SET BO_NICKNAME = #{my_nickname}
+		WHERE BO_ID = #{my_id}
+	</update>
+	<update id="updateNick_buyboard">
+		UPDATE BUYBOARD
+		SET BUY_NICKNAME = #{my_nickname}
+		WHERE BUY_ID = #{my_id}
+	</update>
+	<update id="updateNick_sellboard">
+		UPDATE SELLBOARD
+		SET SEL_NICKNAME = #{my_nickname}
+		WHERE SEL_ID = #{my_id}
+	</update>
+	<update id="updateNick_heartboard">
+		UPDATE HEARTBOARD
+		SET HE_NICKNAME = #{my_nickname}
+		WHERE HE_ID = #{my_id}
+	</update>
+	<update id="updateNick_center">
+		UPDATE CENTER
+		SET CE_NICKNAME = #{my_nickname}
+		WHERE CE_ID = #{my_id}
+	</update>
+	<update id="updatePreWithdrawal">
+		UPDATE MYPAGE
+		SET WD_REASON_PRE = #{wd_reason_pre},
+			WD_REMARK_PRE = #{wd_remark_pre}
+		WHERE MY_ID = #{my_id}
+	</update>
+	<insert id="insertWithdrawal">
+		INSERT INTO WITHDRAWAL (WD_ID, WD_REASON, WD_REMARK, WD_DATE)
+		VALUES(#{my_id}, #{wd_reason_pre}, #{wd_remark_pre}, SYSDATE)
+	</insert>
+</mapper>

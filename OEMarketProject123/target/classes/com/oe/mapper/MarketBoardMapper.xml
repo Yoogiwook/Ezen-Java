@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+
+<mapper namespace="com.oe.mapper.MarketBoardMapper">
+    <select id="getListBoard" resultType="com.oe.domain.MarketBoardVO">
+        select * from marketboard order by BO_HEARTCOUNT desc
+    </select>
+ 
+    <select id="getList_regdate" resultType="com.oe.domain.MarketBoardVO">
+        select * from marketboard order by bo_regdate desc
+    </select>
+
+    <select id="getList_lowPrice" resultType="com.oe.domain.MarketBoardVO">
+        select * from marketboard order by bo_price 
+    </select>
+
+    <select id="getList_highPrice" resultType="com.oe.domain.MarketBoardVO">
+        select * from marketboard order by bo_price desc 
+    </select>
+
+<!--      <insert id="insert">
+        insert into marketboard(bo_num, bo_id, bo_title, bo_nickname, bo_price, bo_content, bo_image ,bo_count, bo_heart, bo_heartcount, bo_category, bo_address1,bo_address2)
+        values(seq_marketboard.nextval, #{bo_id, jdbcType=VARCHAR}, #{bo_title, jdbcType=VARCHAR}, #{bo_nickname, jdbcType=VARCHAR}, #{bo_price, jdbcType=VARCHAR}, #{bo_content, jdbcType=VARCHAR}, #{bo_image, jdbcType=VARCHAR}, #{bo_count, jdbcType=VARCHAR}, #{bo_heart, jdbcType=VARCHAR}, #{bo_heartcount, jdbcType=VARCHAR}, #{bo_category, jdbcType=VARCHAR}, #{bo_address1, jdbcType=VARCHAR}, #{bo_address2, jdbcType=VARCHAR})
+    </insert> -->
+    
+     <insert id="insert">
+        insert into marketboard(bo_num, bo_id, bo_title, bo_nickname, bo_price, bo_content, bo_image ,bo_count, bo_heart, bo_heartcount, bo_category, bo_address1,bo_address2)
+        values((select nvl(max(bo_num), 0)+1 from marketboard), #{bo_id, jdbcType=VARCHAR}, #{bo_title, jdbcType=VARCHAR}, #{bo_nickname, jdbcType=VARCHAR}, #{bo_price, jdbcType=VARCHAR}, #{bo_content, jdbcType=VARCHAR}, #{bo_image, jdbcType=VARCHAR}, #{bo_count, jdbcType=VARCHAR}, #{bo_heart, jdbcType=VARCHAR}, #{bo_heartcount, jdbcType=VARCHAR}, #{bo_category, jdbcType=VARCHAR}, #{bo_address1, jdbcType=VARCHAR}, #{bo_address2, jdbcType=VARCHAR})
+    </insert>
+
+   <insert id="insertFile">
+      <selectKey keyProperty="bo_num" order="BEFORE" resultType="long">
+         select max(bo_num) from marketboard
+        </selectKey>
+      insert into fileUpload(file_num, bo_num, file_original, file_size)
+        values((select nvl(max(file_num), 0)+1 from fileUpload),#{bo_num, jdbcType=VARCHAR}, #{file_original, jdbcType=VARCHAR}, #{file_size, jdbcType=VARCHAR})
+   </insert>
+
+</mapper>
